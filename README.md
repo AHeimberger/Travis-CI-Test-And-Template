@@ -11,3 +11,4 @@
 - Added some content in the README to see if auto-build on push will be done.
 - Yeah automatic builds are working
 - Add a .travis.yml file with a simple echo, lets see what happens
+- Wow so nice its working. Lets get nasty add a Dockerfile which will checkout this Repository
