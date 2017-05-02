@@ -23,14 +23,15 @@ USER ${USER_NAME}
 
 
 # setup environment directories
-ENV DIR_DEPLOY			${HOME}/deploy
-ENV DIR_PROJECT			${HOME}/project/
+ENV DIR_HOME		/home/${USER_NAME}
+ENV DIR_DEPLOY		${DIR_HOME}/deploy
+ENV DIR_PROJECT		${DIR_HOME}/project
+
+
+# setup directories
+WORKDIR ${DIR_PROJECT}
 
 
 # lets checkout the repository use https because of ssh key verification
 RUN git clone -b ${GIT_BRANCH} https://github.com/AHeimberger/TravisCiTest.git ${DIR_PROJECT} && \
 	if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
-
-
-# setup most important directory
-WORKDIR ${DIR_PROJECT}
