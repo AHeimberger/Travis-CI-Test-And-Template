@@ -5,6 +5,7 @@ services:
 
 before_install:
   - docker build -t example .
-  - docker run --rm=true example 
-  - docker ps -a
+  - docker images
 
+script:
+  - docker run --rm=true example 
