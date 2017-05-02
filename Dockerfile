@@ -6,6 +6,7 @@ MAINTAINER aheimberger
 ARG USER_ID=no-id
 ARG USER_NAME=travisci
 ARG GIT_BRANCH=master
+ARG GIT_URL=https://github.com/AHeimberger/TravisCiTest.git
 ARG GIT_HASH=no-hash
 
 
@@ -33,5 +34,5 @@ WORKDIR ${DIR_PROJECT}
 
 
 # lets checkout the repository use https because of ssh key verification
-RUN git clone -b ${GIT_BRANCH} https://github.com/AHeimberger/TravisCiTest.git ${DIR_PROJECT} && \
+RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT} && \
 	if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
