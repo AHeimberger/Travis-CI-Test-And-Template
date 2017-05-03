@@ -44,5 +44,5 @@ WORKDIR ${DIR_PROJECT}
 
 
 # setup entrypoint function
-ENTRYPOINT ["./Scripts/entrypoint.sh"]
-CMD ["help"]
+# ENTRYPOINT ["./Scripts/entrypoint.sh"]
+# CMD ["help"]
