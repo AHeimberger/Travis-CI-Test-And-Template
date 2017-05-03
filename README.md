@@ -12,3 +12,5 @@
 - Yeah automatic builds are working
 - Add a .travis.yml file with a simple echo, lets see what happens
 - Wow so nice its working. Lets get nasty add a Dockerfile which will checkout this Repository
+- Wuhuu I can checkout my github repository in my docker container. Had just problems with my directory and user rights. (since 584ce5bad)
+- Add entrypoint shell script and add entrypoint to dockerfile, default cmd is help

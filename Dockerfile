@@ -35,8 +35,14 @@ RUN mkdir -p ${DIR_DEPLOY} && \
 
 
 # lets checkout the repository use https because of ssh key verification
-RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT}
-# if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
+RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT} && \
+	if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
 
 
+# setup the working directory
 WORKDIR ${DIR_PROJECT}
+
+
+# setup entrypoint function
+ENTRYPOINT ["./Scripts/entrypoint.sh"]
+CMD ["help"]
