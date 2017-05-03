@@ -34,5 +34,5 @@ WORKDIR ${DIR_PROJECT}
 
 
 # lets checkout the repository use https because of ssh key verification
-# RUN	git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT}
+RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT}
 # if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
