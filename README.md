@@ -1,6 +1,6 @@
-# TravisCiTest
+# Travis CI - Test and Template
 
-![Build Badge Travis](https://travis-ci.org/AHeimberger/TravisCiTest.svg?branch=master)
+![Build Badge Travis](https://travis-ci.org/AHeimberger/Travis-CI-Test-And-Template.svg?branch=master)
 
 - Create Github account
 - Create Git-Repository
@@ -14,3 +14,4 @@
 - Wow so nice its working. Lets get nasty add a Dockerfile which will checkout this Repository
 - Wuhuu I can checkout my github repository in my docker container. Had just problems with my directory and user rights. (since 584ce5bad)
 - Add entrypoint shell script and add entrypoint to dockerfile, default cmd is help
+- Add a build schedule within travis ci
