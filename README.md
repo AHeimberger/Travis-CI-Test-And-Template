@@ -1,6 +1,7 @@
-# Travis CI - Test and Template
-
+![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Build Badge Travis](https://travis-ci.org/AHeimberger/Travis-CI-Test-And-Template.svg?branch=master)
+
+# Travis CI - Test and Template
 
 - Create Github account
 - Create Git-Repository
