@@ -20,8 +20,8 @@ RUN apt-get -qq update && \
 
 # setup environment directories
 ENV DIR_HOME		/home/${USER_NAME}
-ENV DIR_DEPLOY		${DIR_HOME}/deploy
-ENV DIR_PROJECT		${DIR_HOME}/project
+ENV DIR_DEPLOY		${DIR_HOME}/deploy/
+ENV DIR_PROJECT		${DIR_HOME}/project/
 
 
 # lets create the user
@@ -34,9 +34,13 @@ RUN mkdir -p ${DIR_DEPLOY} && \
 	mkdir -p ${DIR_PROJECT}
 
 
-# lets checkout the repository use https because of ssh key verification
+# test it from remote
 RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT} && \
 	if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
+
+
+# test it locally
+# COPY . ${DIR_PROJECT}
 
 
 # setup the working directory
