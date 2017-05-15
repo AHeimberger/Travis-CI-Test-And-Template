@@ -1,5 +1,5 @@
 ![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
-![Build Badge Travis](https://travis-ci.org/AHeimberger/Travis-CI-Test-And-Template.svg?branch=master)
+[![Build Status](https://travis-ci.org/AHeimberger/Travis-CI-Test-And-Template.svg?branch=master)](https://travis-ci.org/AHeimberger/Travis-CI-Test-And-Template)
 
 # Travis CI - Test and Template
 
