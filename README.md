@@ -28,3 +28,4 @@
 - Add entrypoint shell script and add entrypoint to dockerfile, default cmd is help
 - Add a build schedule within travis ci
 - Added copy functionality, this way its possible to check something without pushing it :)
+- Add environment variables to build correct branch and commit hash
