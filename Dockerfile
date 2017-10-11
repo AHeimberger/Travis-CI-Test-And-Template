@@ -11,11 +11,11 @@ ARG GIT_HASH=no-hash
 
 
 # prerequisites
-RUN apt-get -qq update && \
-	apt-get -qq dist-upgrade && \
-	\
-	apt-get install -qq -y --no-install-recommends \
-	git openssl ca-certificates
+# RUN apt-get -qq update && \
+# 	apt-get -qq dist-upgrade && \
+# 	\
+# 	apt-get install -qq -y --no-install-recommends \
+#	git openssl ca-certificates
 
 
 # setup environment directories
@@ -34,13 +34,8 @@ RUN mkdir -p ${DIR_DEPLOY} && \
 	mkdir -p ${DIR_PROJECT}
 
 
-# test it from remote
-RUN git clone -b ${GIT_BRANCH} ${GIT_URL} ${DIR_PROJECT} && \
-	if [ ${GIT_HASH} != "no-hash" ]; then cd ${DIR_PROJECT} && git reset --hard ${GIT_HASH}; fi
-
-
 # test it locally
-# COPY . ${DIR_PROJECT}
+COPY . ${DIR_PROJECT}
 
 
 # setup the working directory

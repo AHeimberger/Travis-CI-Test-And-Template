@@ -29,3 +29,4 @@
 - Add a build schedule within travis ci
 - Added copy functionality, this way its possible to check something without pushing it :)
 - Add environment variables to build correct branch and commit hash
+- Well lets try if we really need to clone the repo
