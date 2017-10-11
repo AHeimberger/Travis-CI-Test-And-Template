@@ -5,17 +5,15 @@ MAINTAINER aheimberger
 # setup default build arguments
 ARG USER_ID=no-id
 ARG USER_NAME=travisci
-ARG GIT_BRANCH=master
-ARG GIT_URL=https://github.com/AHeimberger/TravisCiTest.git
 ARG GIT_HASH=no-hash
 
 
 # prerequisites
-# RUN apt-get -qq update && \
-# 	apt-get -qq dist-upgrade && \
-# 	\
-# 	apt-get install -qq -y --no-install-recommends \
-#	git openssl ca-certificates
+RUN apt-get -qq update && \
+	apt-get -qq dist-upgrade && \
+	\
+	apt-get install -qq -y --no-install-recommends \
+	git openssl ca-certificates
 
 
 # setup environment directories
@@ -26,16 +24,22 @@ ENV DIR_PROJECT		${DIR_HOME}/project/
 
 # lets create the user
 RUN useradd -ms /bin/bash ${USER_NAME}
-USER ${USER_NAME}
-
-
-# setup directories
-RUN mkdir -p ${DIR_DEPLOY} && \
-	mkdir -p ${DIR_PROJECT}
 
 
 # test it locally
 COPY . ${DIR_PROJECT}
+RUN cd ${DIR_PROJECT} && \
+    git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n1 && \
+    chown -R ${USER_NAME} ${DIR_PROJECT} && \
+    chgrp -R ${USER_NAME} ${DIR_PROJECT}
+
+
+# switch user
+USER ${USER_NAME}
+
+
+# create deploy directory
+RUN mkdir -p ${DIR_DEPLOY}
 
 
 # setup the working directory
