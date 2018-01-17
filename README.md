@@ -7,9 +7,9 @@
 ## How To
 1. Install [Docker](https://www.docker.com/)
 2. Clone this repository, change into directory
-3. Build Image **docker build -t travis-template .**
-4. Run Image **docker run --rm=true -it travis-template**
-5. Run Image without menu **docker run --rm=true -it travis-template /bin/bash**
+3. Open a shell and write `source functions.sh`
+4. Create image via `travisCiBuild`
+5. Run image via `travisCiRun`
 
 
 ## Travis Setup
